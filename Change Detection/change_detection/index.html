@@ -571,10 +571,11 @@ plt.annotate('Max Difference', xy=(1.7, 0.3), xytext=(2, 0.35),
 <p><img alt="png" src="../output_8_1.png" /></p>
 <p>The Max|D| between the two CDFs is 0.15</p>
 <p>From the KS table, the critical value at alpha 0.05 is 1.36/root(n) = 0.136</p>
-<p>Since Max|D| &gt; critical value, with 95% confidence, we reject the null hypothesis that the two distributions do not differ, which means we can say that OVGU grades have improved. Tirtha was right.</p>
+<p><strong>Since Max|D| &gt; critical value, with 95% confidence, we reject the null hypothesis that the two distributions do not differ, which means we can say that OVGU grades have improved. Tirtha was right.</strong></p>
 <p>However, Vishnu contests this and says that 95% confidence isn't good enough. He recommends that they be 99% confident before making such a claim about the improvement in grades.
 So, they look at the KS table again, and they get the critical value at alpha 0.01, which is 1.63/root(n) = 0.163</p>
-<p>This time, Max|D| &lt; critical value with 99%; therefore, with 99% confidence, we fail to reject the null hypothesis that the two distributions do not differ, which means that the shift in grades might be due to chance, and the distribution might not have drifted</p>
+<p><strong>This time, Max|D| &lt; critical value with 99%; therefore, with 99% confidence, we fail to reject the null hypothesis that the two distributions do not differ, which means that the shift in grades might be due to chance, and the distribution might not have drifted</strong></p>
+<hr />
 <h2 id="finding-the-distance-between-two-probability-distributions-kulback-leibler-divergence">Finding the distance between two probability distributions: Kulback-Leibler Divergence</h2>
 <p>This is a measure to calculate the distance between two probability distributions. 
 Note: this isn't a distance metric because it violates the symmetry and triangle inequality properties of distance metrics.
