@@ -124,8 +124,11 @@ The Kolmogorov-Smirnov Test can help them determine who is right.
 **KS Test Steps:**
 
 1) Calculate the CDFs of both the distributions
+
 2) Find the maximum absolute difference max|D| between the two CDFS
+
 3) Compare max|D| with the critical value at a desired alpha obtained from the KS table.
+
 4) Conclude that the change is significant if max|D| > critical value
 
 
@@ -427,11 +430,6 @@ plt.annotate('Max Difference', xy=(1.7, 0.3), xytext=(2, 0.35),
 
 
 
-    Text(2,0.35,'Max Difference')
-
-
-
-
 ![png](output_8_1.png)
 
 
@@ -569,6 +567,7 @@ def kl_divergence(P, Q):
 **Steps to calculate KL Divergence for discrete data:**
 
 1) Calculate the probabilities for the two distributions from the data
+
 2) Apply the formula
 
 
