@@ -547,7 +547,8 @@ grades
 
 
 
-The formula for the KL Divergence is 
+The formula for the KL Divergence is
+
 ![kld](kld.png)
 
 The ![ratio](ratio.png) $ part is a ratio. Therefore, if the two distributions P and Q are almost identical, the probability of x in distribution P will be almost equal to the probability of x in distribution Q, so the ratio will be close to 1. ![ratio_res](ratio_res.png)
