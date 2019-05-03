@@ -284,10 +284,10 @@ grades
 <p>Tirtha believes that the grades of the students have improved from last year (drift). However, Vishnu is skeptical and suspects that the shift in grades is very small and not significant enough to conclude that anything has improved.</p>
 <p>The Kolmogorov-Smirnov Test can help them determine who is right.</p>
 <p><strong>KS Test Steps:</strong></p>
-<p>1) Calculate the CDFs of both the distributions
-2) Find the maximum absolute difference max|D| between the two CDFS
-3) Compare max|D| with the critical value at a desired alpha obtained from the KS table.
-4) Conclude that the change is significant if max|D| &gt; critical value</p>
+<p>1) Calculate the CDFs of both the distributions</p>
+<p>2) Find the maximum absolute difference max|D| between the two CDFS</p>
+<p>3) Compare max|D| with the critical value at a desired alpha obtained from the KS table.</p>
+<p>4) Conclude that the change is significant if max|D| &gt; critical value</p>
 <pre><code class="python">grades['proportion (2018)'] = grades['2018'].apply(lambda x: x/grades['2018'].sum())
 grades['proportion (2019)'] = grades['2019'].apply(lambda x: x/grades['2019'].sum())
 grades
@@ -566,8 +566,6 @@ plt.annotate('Max Difference', xy=(1.7, 0.3), xytext=(2, 0.35),
             )
 </code></pre>
 
-<pre><code>Text(2,0.35,'Max Difference')
-</code></pre>
 <p><img alt="png" src="../output_8_1.png" /></p>
 <p>The Max|D| between the two CDFs is 0.15</p>
 <p>From the KS table, the critical value at alpha 0.05 is 1.36/root(n) = 0.136</p>
@@ -681,8 +679,8 @@ Since the log of a number close to 1 is close to 0, summing multiple numbers clo
 </code></pre>
 
 <p><strong>Steps to calculate KL Divergence for discrete data:</strong></p>
-<p>1) Calculate the probabilities for the two distributions from the data
-2) Apply the formula</p>
+<p>1) Calculate the probabilities for the two distributions from the data</p>
+<p>2) Apply the formula</p>
 <pre><code class="python"># Calculate probability distribution
 grades['P(x)'] = grades['2018'].apply(lambda x: x/grades['2018'].sum())
 grades['Q(x)'] = grades['2019'].apply(lambda x: x/grades['2019'].sum())
