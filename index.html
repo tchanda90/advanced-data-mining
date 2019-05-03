@@ -4,14 +4,14 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
         
         
-        
-        <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Fading Function - Advanced Data Mining</title>
-    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
-    <link href="../../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../css/base.css" rel="stylesheet">
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>Advanced Data Mining</title>
+    <link href="css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/base.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -19,13 +19,13 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <script src="../../js/jquery-1.10.2.min.js" defer></script>
-    <script src="../../js/bootstrap-3.3.7.min.js" defer></script>
+    <script src="js/jquery-1.10.2.min.js" defer></script>
+    <script src="js/bootstrap-3.3.7.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
-    <body>
+    <body class="homepage">
 
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
@@ -39,22 +39,22 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="../..">Advanced Data Mining</a>
+                    <a class="navbar-brand" href=".">Advanced Data Mining</a>
                 </div>
 
                 <!-- Expanded navigation -->
                 <div class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li >
-                                <a href="../..">Advanced Data Mining</a>
+                            <li class="active">
+                                <a href=".">Advanced Data Mining</a>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Change Detection <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../../Change Detection/change_detection/">Change detection</a>
+    <a href="Change Detection/change_detection/">Change detection</a>
 </li>
                                 </ul>
                             </li>
@@ -63,16 +63,16 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../../Clustream/clustream/">Clustream</a>
+    <a href="Clustream/clustream/">Clustream</a>
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fading Function <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
-<li class="active">
-    <a href="./">Fading Function</a>
+<li >
+    <a href="Fading Function/fading_function/">Fading Function</a>
 </li>
                                 </ul>
                             </li>
@@ -81,7 +81,7 @@
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../../Simple Statistics/simple_statistics/">Simple statistics</a>
+    <a href="Simple Statistics/simple_statistics/">Simple statistics</a>
 </li>
                                 </ul>
                             </li>
@@ -93,13 +93,13 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
-                            <li >
-                                <a rel="next" href="../../Clustream/clustream/">
+                            <li class="disabled">
+                                <a rel="next" >
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li >
-                                <a rel="prev" href="../../Simple Statistics/simple_statistics/">
+                                <a rel="prev" href="Change Detection/change_detection/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -111,134 +111,12 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#fading-function">Fading Function</a></li>
-            <li><a href="#as-time-increases-the-weight-of-the-instance-x-gets-smaller-and-smaller">As Time increases, the weight of the instance X gets smaller and smaller</a></li>
+        <li class="main active"><a href="#advanced-data-mining">Advanced Data Mining</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="fading-function">Fading Function</h1>
-<p><strong>For a damped window model, consider the fading function f(t) = 2^−λt, where t is
-the time-point and λ is a user-defined parameter. What is the weight of an instance x
-observed at time-point T(T &gt; t)? Calculate the weight of the instance x at t0, t1, t2, t3, t4
-since time t0. Plot a graph of hte weight v/s the time-point.</strong></p>
-<pre><code class="python">import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-sns.set()
-</code></pre>
-
-<pre><code class="python">lam = 1
-def f(t):
-    return 2**(-lam*t)
-</code></pre>
-
-<pre><code class="python">timepoints = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-weights = []
-for timepoint in timepoints:
-    weight = f(timepoint)
-    weights.append(weight)
-</code></pre>
-
-<pre><code class="python">df = pd.DataFrame(weights, columns=[['Weight']])
-df['Timepoint'] = df.index
-df
-</code></pre>
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead tr th {
-        text-align: left;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Weight</th>
-      <th>Timepoint</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1.000000</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0.500000</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0.250000</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0.125000</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.062500</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>0.031250</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>0.015625</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>0.007812</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>0.003906</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>0.001953</td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>0.000977</td>
-      <td>10</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-<pre><code class="python">fig, ax = plt.subplots()
-fig.set_size_inches(15, 8.27)
-plt.title('Weight of an instance X over different timepoints according to the fading function f(t) = 2^−λt')
-plt.xlabel('Time')
-plt.ylabel('Weight')
-plt.plot(df['Timepoint'].values, df['Weight'].values, marker='o')
-</code></pre>
-
-<pre><code>[&lt;matplotlib.lines.Line2D at 0x138043f0&gt;]
-</code></pre>
-<p><img alt="png" src="../output_6_1.png" /></p>
-<h3 id="as-time-increases-the-weight-of-the-instance-x-gets-smaller-and-smaller">As Time increases, the weight of the instance X gets smaller and smaller</h3></div>
+<h1 id="advanced-data-mining">Advanced Data Mining</h1></div>
         </div>
 
         <footer class="col-md-12">
@@ -246,11 +124,11 @@ plt.plot(df['Timepoint'].values, df['Weight'].values, marker='o')
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
         <script>
-            var base_url = "../..",
+            var base_url = ".",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="../../js/base.js" defer></script>
-        <script src="../../search/main.js" defer></script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
     <div class="modal-dialog">
@@ -318,3 +196,8 @@ plt.plot(df['Timepoint'].values, df['Weight'].values, marker='o')
 
     </body>
 </html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2019-05-03 14:00:51
+-->
