@@ -983,8 +983,8 @@ grades
 </table>
 </div>
 
-<p>The formula for the KL Divergence is 
-<img alt="kld" src="../kld.png" /></p>
+<p>The formula for the KL Divergence is</p>
+<p><img alt="kld" src="../kld.png" /></p>
 <p>The <img alt="ratio" src="../ratio.png" /> $ part is a ratio. Therefore, if the two distributions P and Q are almost identical, the probability of x in distribution P will be almost equal to the probability of x in distribution Q, so the ratio will be close to 1. <img alt="ratio_res" src="../ratio_res.png" />
 Since the log of a number close to 1 is close to 0, summing multiple numbers close to 0 will result in a low KL Divergence.</p>
 <pre><code class="python">def kl_divergence(P, Q):
