@@ -121,7 +121,7 @@ Tirtha believes that the grades of the students have improved from last year (dr
 The Kolmogorov-Smirnov Test can help them determine who is right.
 
 
-**KS Test Steps:**
+#### KS Test Steps:
 
 1) Calculate the CDFs of both the distributions
 
@@ -564,7 +564,7 @@ def kl_divergence(P, Q):
     return np.round(kl, 3)
 ```
 
-**Steps to calculate KL Divergence for discrete data:**
+#### Steps to calculate KL Divergence for discrete data:
 
 1) Calculate the probabilities for the two distributions from the data
 
@@ -708,3 +708,5 @@ print(kl_divergence(qx, px))
 
 #### The KL Divergence between P and Q is 0.242
 #### The KL Divergence between Q and P is 0.314
+
+#### If this divergence goes beyond a user-specified threshold, drift is signalled.
