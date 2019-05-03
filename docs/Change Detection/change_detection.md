@@ -707,6 +707,5 @@ print(kl_divergence(qx, px))
     
 
 #### The KL Divergence between P and Q is 0.242
-#### The KL Divergence between Q and P is 0.314
 
 #### If this divergence goes beyond a user-specified threshold, drift is signalled.
