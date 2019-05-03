@@ -283,8 +283,8 @@ grades
 
 <p>Tirtha believes that the grades of the students have improved from last year (drift). However, Vishnu is skeptical and suspects that the shift in grades is very small and not significant enough to conclude that anything has improved.</p>
 <p>The Kolmogorov-Smirnov Test can help them determine who is right.</p>
-<p><strong>KS Test Steps:</strong>
-1) Calculate the CDFs of both the distributions
+<p><strong>KS Test Steps:</strong></p>
+<p>1) Calculate the CDFs of both the distributions
 2) Find the maximum absolute difference max|D| between the two CDFS
 3) Compare max|D| with the critical value at a desired alpha obtained from the KS table.
 4) Conclude that the change is significant if max|D| &gt; critical value</p>
@@ -679,8 +679,8 @@ Since the log of a number close to 1 is close to 0, summing multiple numbers clo
     return np.round(kl, 3)
 </code></pre>
 
-<p><strong>Steps to calculate KL Divergence for discrete data:</strong>
-1) Calculate the probabilities for the two distributions from the data
+<p><strong>Steps to calculate KL Divergence for discrete data:</strong></p>
+<p>1) Calculate the probabilities for the two distributions from the data
 2) Apply the formula</p>
 <pre><code class="python"># Calculate probability distribution
 grades['P(x)'] = grades['2018'].apply(lambda x: x/grades['2018'].sum())
