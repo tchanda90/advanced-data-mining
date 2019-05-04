@@ -23,7 +23,7 @@ Given below are the observed frequencies of grades obtained by a sample of OVGU 
 
 ```python
 d = {'2018':[9, 5, 12, 18, 16, 12, 15, 5, 2, 6], 
-     '2019':[4, 18, 18, 13, 12, 7, 9, 3, 12, 2],
+     '2019':[4, 18, 19, 13, 12, 7, 9, 3, 12, 3],
      'Grade': [1.0, 1.3, 1.7, 2.0, 2.3, 2.7, 3.0, 3.3, 3.7, 4.0]}
 grades = pd.DataFrame(d).set_index('Grade')
 grades
@@ -73,7 +73,7 @@ grades
     <tr>
       <th>1.7</th>
       <td>12</td>
-      <td>18</td>
+      <td>19</td>
     </tr>
     <tr>
       <th>2.0</th>
@@ -108,7 +108,7 @@ grades
     <tr>
       <th>4.0</th>
       <td>6</td>
-      <td>2</td>
+      <td>3</td>
     </tr>
   </tbody>
 </table>
@@ -178,70 +178,70 @@ grades
       <td>9</td>
       <td>4</td>
       <td>0.09</td>
-      <td>0.040816</td>
+      <td>0.04</td>
     </tr>
     <tr>
       <th>1.3</th>
       <td>5</td>
       <td>18</td>
       <td>0.05</td>
-      <td>0.183673</td>
+      <td>0.18</td>
     </tr>
     <tr>
       <th>1.7</th>
       <td>12</td>
-      <td>18</td>
+      <td>19</td>
       <td>0.12</td>
-      <td>0.183673</td>
+      <td>0.19</td>
     </tr>
     <tr>
       <th>2.0</th>
       <td>18</td>
       <td>13</td>
       <td>0.18</td>
-      <td>0.132653</td>
+      <td>0.13</td>
     </tr>
     <tr>
       <th>2.3</th>
       <td>16</td>
       <td>12</td>
       <td>0.16</td>
-      <td>0.122449</td>
+      <td>0.12</td>
     </tr>
     <tr>
       <th>2.7</th>
       <td>12</td>
       <td>7</td>
       <td>0.12</td>
-      <td>0.071429</td>
+      <td>0.07</td>
     </tr>
     <tr>
       <th>3.0</th>
       <td>15</td>
       <td>9</td>
       <td>0.15</td>
-      <td>0.091837</td>
+      <td>0.09</td>
     </tr>
     <tr>
       <th>3.3</th>
       <td>5</td>
       <td>3</td>
       <td>0.05</td>
-      <td>0.030612</td>
+      <td>0.03</td>
     </tr>
     <tr>
       <th>3.7</th>
       <td>2</td>
       <td>12</td>
       <td>0.02</td>
-      <td>0.122449</td>
+      <td>0.12</td>
     </tr>
     <tr>
       <th>4.0</th>
       <td>6</td>
-      <td>2</td>
+      <td>3</td>
       <td>0.06</td>
-      <td>0.020408</td>
+      <td>0.03</td>
     </tr>
   </tbody>
 </table>
@@ -305,9 +305,9 @@ grades
       <td>9</td>
       <td>4</td>
       <td>0.09</td>
-      <td>0.040816</td>
+      <td>0.04</td>
       <td>0.09</td>
-      <td>0.040816</td>
+      <td>0.04</td>
       <td>0.05</td>
     </tr>
     <tr>
@@ -315,19 +315,19 @@ grades
       <td>5</td>
       <td>18</td>
       <td>0.05</td>
-      <td>0.183673</td>
+      <td>0.18</td>
       <td>0.14</td>
-      <td>0.224490</td>
+      <td>0.22</td>
       <td>0.08</td>
     </tr>
     <tr>
       <th>1.7</th>
       <td>12</td>
-      <td>18</td>
+      <td>19</td>
       <td>0.12</td>
-      <td>0.183673</td>
+      <td>0.19</td>
       <td>0.26</td>
-      <td>0.408163</td>
+      <td>0.41</td>
       <td>0.15</td>
     </tr>
     <tr>
@@ -335,9 +335,9 @@ grades
       <td>18</td>
       <td>13</td>
       <td>0.18</td>
-      <td>0.132653</td>
+      <td>0.13</td>
       <td>0.44</td>
-      <td>0.540816</td>
+      <td>0.54</td>
       <td>0.10</td>
     </tr>
     <tr>
@@ -345,9 +345,9 @@ grades
       <td>16</td>
       <td>12</td>
       <td>0.16</td>
-      <td>0.122449</td>
+      <td>0.12</td>
       <td>0.60</td>
-      <td>0.663265</td>
+      <td>0.66</td>
       <td>0.06</td>
     </tr>
     <tr>
@@ -355,9 +355,9 @@ grades
       <td>12</td>
       <td>7</td>
       <td>0.12</td>
-      <td>0.071429</td>
+      <td>0.07</td>
       <td>0.72</td>
-      <td>0.734694</td>
+      <td>0.73</td>
       <td>0.01</td>
     </tr>
     <tr>
@@ -365,39 +365,39 @@ grades
       <td>15</td>
       <td>9</td>
       <td>0.15</td>
-      <td>0.091837</td>
+      <td>0.09</td>
       <td>0.87</td>
-      <td>0.826531</td>
-      <td>0.04</td>
+      <td>0.82</td>
+      <td>0.05</td>
     </tr>
     <tr>
       <th>3.3</th>
       <td>5</td>
       <td>3</td>
       <td>0.05</td>
-      <td>0.030612</td>
+      <td>0.03</td>
       <td>0.92</td>
-      <td>0.857143</td>
-      <td>0.06</td>
+      <td>0.85</td>
+      <td>0.07</td>
     </tr>
     <tr>
       <th>3.7</th>
       <td>2</td>
       <td>12</td>
       <td>0.02</td>
-      <td>0.122449</td>
+      <td>0.12</td>
       <td>0.94</td>
-      <td>0.979592</td>
-      <td>0.04</td>
+      <td>0.97</td>
+      <td>0.03</td>
     </tr>
     <tr>
       <th>4.0</th>
       <td>6</td>
-      <td>2</td>
+      <td>3</td>
       <td>0.06</td>
-      <td>0.020408</td>
+      <td>0.03</td>
       <td>1.00</td>
-      <td>1.000000</td>
+      <td>1.00</td>
       <td>0.00</td>
     </tr>
   </tbody>
@@ -455,7 +455,7 @@ We will use the same grade distributions from earlier.
 
 ```python
 d = {'2018':[9, 5, 12, 18, 16, 12, 15, 5, 2, 6], 
-     '2019':[4, 18, 18, 13, 12, 7, 9, 3, 12, 2],
+     '2019':[4, 18, 19, 13, 12, 7, 9, 3, 12, 3],
      'Grade': [1.0, 1.3, 1.7, 2.0, 2.3, 2.7, 3.0, 3.3, 3.7, 4.0]}
 grades = pd.DataFrame(d).set_index('Grade')
 grades
@@ -505,7 +505,7 @@ grades
     <tr>
       <th>1.7</th>
       <td>12</td>
-      <td>18</td>
+      <td>19</td>
     </tr>
     <tr>
       <th>2.0</th>
@@ -540,7 +540,7 @@ grades
     <tr>
       <th>4.0</th>
       <td>6</td>
-      <td>2</td>
+      <td>3</td>
     </tr>
   </tbody>
 </table>
@@ -582,7 +582,6 @@ ax.set(ylabel='Probability', xlabel='Grade')
 plt.show()
 ```
 
-
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -620,70 +619,70 @@ plt.show()
       <td>9</td>
       <td>4</td>
       <td>0.09</td>
-      <td>0.040816</td>
+      <td>0.04</td>
     </tr>
     <tr>
       <th>1.3</th>
       <td>5</td>
       <td>18</td>
       <td>0.05</td>
-      <td>0.183673</td>
+      <td>0.18</td>
     </tr>
     <tr>
       <th>1.7</th>
       <td>12</td>
-      <td>18</td>
+      <td>19</td>
       <td>0.12</td>
-      <td>0.183673</td>
+      <td>0.19</td>
     </tr>
     <tr>
       <th>2.0</th>
       <td>18</td>
       <td>13</td>
       <td>0.18</td>
-      <td>0.132653</td>
+      <td>0.13</td>
     </tr>
     <tr>
       <th>2.3</th>
       <td>16</td>
       <td>12</td>
       <td>0.16</td>
-      <td>0.122449</td>
+      <td>0.12</td>
     </tr>
     <tr>
       <th>2.7</th>
       <td>12</td>
       <td>7</td>
       <td>0.12</td>
-      <td>0.071429</td>
+      <td>0.07</td>
     </tr>
     <tr>
       <th>3.0</th>
       <td>15</td>
       <td>9</td>
       <td>0.15</td>
-      <td>0.091837</td>
+      <td>0.09</td>
     </tr>
     <tr>
       <th>3.3</th>
       <td>5</td>
       <td>3</td>
       <td>0.05</td>
-      <td>0.030612</td>
+      <td>0.03</td>
     </tr>
     <tr>
       <th>3.7</th>
       <td>2</td>
       <td>12</td>
       <td>0.02</td>
-      <td>0.122449</td>
+      <td>0.12</td>
     </tr>
     <tr>
       <th>4.0</th>
       <td>6</td>
-      <td>2</td>
+      <td>3</td>
       <td>0.06</td>
-      <td>0.020408</td>
+      <td>0.03</td>
     </tr>
   </tbody>
 </table>
