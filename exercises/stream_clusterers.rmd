@@ -1,6 +1,6 @@
 ---
 title: "Stream Clustering Algorithms"
-output: html_document
+output: rmarkdown::github_document
 ---
 
 ```{r setup, include=FALSE}
