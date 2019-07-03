@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+        <title>Incremental knn - Advanced Data Mining</title>
+
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.min.css">
+        <link href="../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">
+            
+            Advanced Data Mining
+            </a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+            
+                
+                <li >
+                    <a href="../..">
+                      Advanced Data Mining
+                    </a>
+                </li>
+                
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Change detection <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                        <li >
+                            <a href="../../change_detection/change_detection/">Change detection </a>
+                        </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Clustream <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                        <li >
+                            <a href="../../clustream/clustream/">Clustream </a>
+                        </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fading function <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                        <li >
+                            <a href="../../fading_function/fading_function/">Fading Function </a>
+                        </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Incremental knn <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                        <li class="active">
+                            <a href="./">Incremental knn </a>
+                        </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Simple statistics <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                        <li >
+                            <a href="../../simple_statistics/simple_statistics/">Simple statistics </a>
+                        </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Stream clusteres <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                        <li >
+                            <a href="../../stream_clusteres/stream_clusterers/">Stream clusterers </a>
+                        </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+              
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3">
+<div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="../../#data-stream-of-documents">Data stream of documents</a></li>
+        
+            <li><a href="../../#convert-the-texts-into-binary-vectors-where-the-presence-of-a-term-is-1-and-the-absence-is-0-use-the-following-structure-for-the-document-vectors-which-excludes-stop-words">Convert  the  texts  into  binary  vectors  where  the  presence  of  a  term  is 1  and  the  absence  is  0.   Use  the  following  structure  for  the  document vectors,  which  excludes  stop  words:</a></li>
+        
+            <li><a href="../../#regular-pay-free-trial-exercisechance-vehicle-fun-need-like-donut-fresh-available-cheap-register-today-time-good-viagra-run">[regular,  pay,  free,  trial,  exercise,chance,  vehicle,  fun,  need,  like,  donut,  fresh,  available,  cheap,  register, today,  time,  good,  viagra,  run]</a></li>
+        
+            <li><a href="../../#to-measure-document-similarity-calculate-the-jaccard-coefficient-between-two-document-vectors">To measure document similarity, calculate the Jaccard coefficient between two document vectors.</a></li>
+        
+            <li><a href="../../#example">Example:</a></li>
+        
+            <li><a href="../../#ts-6">TS 6</a></li>
+        
+            <li><a href="../../#ts-7">TS 7</a></li>
+        
+            <li><a href="../../#ts-8">TS 8</a></li>
+        
+            <li><a href="../../#ts-9">TS 9</a></li>
+        
+            <li><a href="../../#ts-10">TS 10</a></li>
+        
+            <li><a href="../../#ts-11">TS 11</a></li>
+        
+            <li><a href="../../#ts-12">TS 12</a></li>
+        
+    
+        <li class="main "><a href="../../#summary-of-predictions">Summary of predictions</a></li>
+        
+            <li><a href="../../#when-the-dataset-is-imbalanced-computing-kappa-against-the-ground-truth-gives-a-more-reliable-performance-estimate-than-accuracy-higher-values-are-better">When the dataset is imbalanced, computing Kappa against the ground truth gives a more reliable performance estimate than accuracy. Higher values are better</a></li>
+        
+    
+    </ul>
+</div>
+</div>
+            <div class="col-md-9" role="main">
+
+<pre><code class="python">import pandas as pd
+import numpy as np
+from sklearn.feature_extraction.text import CountVectorizer 
+from sklearn.metrics import accuracy_score, cohen_kappa_score
+</code></pre>
+
+<pre><code class="python">def jaccard_similarity(x, y):
+    &quot;&quot;&quot;
+    Returns jaccard score between x and y
+    &quot;&quot;&quot;
+    return np.logical_and(x, y).sum() / np.logical_or(x, y).sum()
+</code></pre>
+
+<pre><code class="python">d = {'TS': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    'Text': ['Regularly paying too much for free trials?', 
+             'Exercise as a chance for your free vehicle.',
+             'I have just as much fun as I need.',
+             'Do you like donuts?',
+             'Fresh donuts available for cheap',
+             'They had fresh donuts available, so today was fun',
+             'Register your free trial today',
+             'What time is good for you?',
+             'I didn\'t pay for the donuts',
+             'Cheap viagra available',
+             'Did you have a good time today?',
+             'It was available so I registered'], 
+     'Transformed': ['regular pay free trial', 
+                     'exercise chance free vehicle',
+                     'fun need',
+                     'like donut',
+                     'fresh donut available cheap',
+                     'fresh donut available today fun',
+                     'register free trial today',
+                     'time good',
+                     'pay donut',
+                     'cheap viagra available',
+                     'good time today',
+                     'available register'],
+     'Class': ['Spam', 'Spam', 'Not spam', 'Not spam', 'Spam', 'Not spam', 'Spam', 'Not spam', 'Not spam', 'Spam', 'Not spam', 'Not spam']}
+data = pd.DataFrame(d)
+</code></pre>
+
+<h1 id="data-stream-of-documents">Data stream of documents</h1>
+<pre><code class="python">display(data[['TS', 'Text', 'Class']])
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>TS</th>
+      <th>Text</th>
+      <th>Class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Regularly paying too much for free trials?</td>
+      <td>Spam</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Exercise as a chance for your free vehicle.</td>
+      <td>Spam</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>I have just as much fun as I need.</td>
+      <td>Not spam</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Do you like donuts?</td>
+      <td>Not spam</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Fresh donuts available for cheap</td>
+      <td>Spam</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>They had fresh donuts available, so today was fun</td>
+      <td>Not spam</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>Register your free trial today</td>
+      <td>Spam</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>What time is good for you?</td>
+      <td>Not spam</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>I didn't pay for the donuts</td>
+      <td>Not spam</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>Cheap viagra available</td>
+      <td>Spam</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>11</td>
+      <td>Did you have a good time today?</td>
+      <td>Not spam</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>It was available so I registered</td>
+      <td>Not spam</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="convert-the-texts-into-binary-vectors-where-the-presence-of-a-term-is-1-and-the-absence-is-0-use-the-following-structure-for-the-document-vectors-which-excludes-stop-words">Convert  the  texts  into  binary  vectors  where  the  presence  of  a  term  is 1  and  the  absence  is  0.   Use  the  following  structure  for  the  document vectors,  which  excludes  stop  words:</h2>
+<h2 id="regular-pay-free-trial-exercisechance-vehicle-fun-need-like-donut-fresh-available-cheap-register-today-time-good-viagra-run"><em>[regular,  pay,  free,  trial,  exercise,chance,  vehicle,  fun,  need,  like,  donut,  fresh,  available,  cheap,  register, today,  time,  good,  viagra,  run]</em></h2>
+<h3 id="note-assume-there-is-a-pre-processing-function-that-stems-the-terms-so-paying-becomes-pay-trials-become-trialetc">Note:  Assume  there  is  a  pre-processing function that stems the terms, so paying becomes pay, trials become trial,etc.</h3>
+<pre><code class="python">vocab = ['regular', 'pay', 'free', 'trial', 'exercise', 'chance', 'vehicle', 'fun', 'need', 'like', 'donut', 'fresh', 'available', 'cheap', 'register', 'today', 'time', 'good', 'viagra', 'run']
+vec = CountVectorizer(binary=True, stop_words='english', lowercase=True, vocabulary=vocab)
+X = vec.fit_transform(data.Transformed)
+text_vectors = pd.DataFrame(X.toarray(), columns=vec.get_feature_names())
+text_vectors['TS'] = data.TS
+text_vectors.set_index('TS', inplace=True)
+display(text_vectors)
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>regular</th>
+      <th>pay</th>
+      <th>free</th>
+      <th>trial</th>
+      <th>exercise</th>
+      <th>chance</th>
+      <th>vehicle</th>
+      <th>fun</th>
+      <th>need</th>
+      <th>like</th>
+      <th>donut</th>
+      <th>fresh</th>
+      <th>available</th>
+      <th>cheap</th>
+      <th>register</th>
+      <th>today</th>
+      <th>time</th>
+      <th>good</th>
+      <th>viagra</th>
+      <th>run</th>
+    </tr>
+    <tr>
+      <th>TS</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="to-measure-document-similarity-calculate-the-jaccard-coefficient-between-two-document-vectors">To measure document similarity, calculate the Jaccard coefficient between two document vectors.</h2>
+<h2 id="example">Example:</h2>
+<h3 id="doc11-1-0-0">doc1=[1, 1, 0, 0]</h3>
+<h3 id="doc21-0-1-0">doc2=[1, 0, 1, 0]</h3>
+<h3 id="jaccarddoc1-doc2-intersection-union">Jaccard(doc1, doc2) = intersection / union</h3>
+<h3 id="intersection-number-of-times-1-appears-in-both-docs-at-the-same-position-1">intersection: number of times 1 appears in both docs at the same position (1)</h3>
+<h3 id="union-number-of-times-1-appears-in-one-vector-and-either-0-or-1-appears-in-the-other-3">union: number of times 1 appears in one vector and either 0 or 1 appears in the other (3)</h3>
+<h3 id="1-1-1-1-066">1 / (1 + 1 + 1) = 0.66</h3>
+<h2 id="ts-6">TS 6</h2>
+<h3 id="window-1-2-3-4-5">Window: [1, 2, 3, 4, 5]</h3>
+<pre><code class="python">print('Jaccard(6, 1):', jaccard_similarity(text_vectors.loc[6], text_vectors.loc[1]))
+print('Jaccard(6, 2):', jaccard_similarity(text_vectors.loc[6], text_vectors.loc[2]))
+print('Jaccard(6, 3):', jaccard_similarity(text_vectors.loc[6], text_vectors.loc[3]))
+print('Jaccard(6, 4):', jaccard_similarity(text_vectors.loc[6], text_vectors.loc[4]))
+print('Jaccard(6, 5):', jaccard_similarity(text_vectors.loc[6], text_vectors.loc[5]))
+</code></pre>
+
+<pre><code>Jaccard(6, 1): 0.0
+Jaccard(6, 2): 0.0
+Jaccard(6, 3): 0.16666666666666666
+Jaccard(6, 4): 0.16666666666666666
+Jaccard(6, 5): 0.5
+</code></pre>
+<h3 id="nearest-neighbors-3-not-spam-4-not-spam-5-spam">Nearest Neighbors: [3: Not spam, 4: Not spam, 5: Spam]</h3>
+<h3 id="classification-not-spam">Classification: Not spam</h3>
+<h2 id="ts-7">TS 7</h2>
+<h3 id="window-2-3-4-5-6">Window: [2, 3, 4, 5, 6]</h3>
+<pre><code class="python">print('Jaccard(7, 2):', jaccard_similarity(text_vectors.loc[7], text_vectors.loc[2]))
+print('Jaccard(7, 3):', jaccard_similarity(text_vectors.loc[7], text_vectors.loc[3]))
+print('Jaccard(7, 4):', jaccard_similarity(text_vectors.loc[7], text_vectors.loc[4]))
+print('Jaccard(7, 5):', jaccard_similarity(text_vectors.loc[7], text_vectors.loc[5]))
+print('Jaccard(7, 6):', jaccard_similarity(text_vectors.loc[7], text_vectors.loc[6]))
+</code></pre>
+
+<pre><code>Jaccard(7, 2): 0.14285714285714285
+Jaccard(7, 3): 0.0
+Jaccard(7, 4): 0.0
+Jaccard(7, 5): 0.0
+Jaccard(7, 6): 0.125
+</code></pre>
+<h3 id="nearest-neighbors-2-spam-6-not-spam-3-4-5-since-there-are-many-instances-tied-for-3rd-nearest-neighbor-keep-lowering-k-till-the-tie-is-broken">Nearest Neighbors: [2: Spam, 6: Not spam, 3, 4, 5] (Since there are many instances tied for 3rd nearest neighbor, keep lowering K till the tie is broken)</h3>
+<h3 id="nearest-neighbor-2-spam">Nearest Neighbor: [2: Spam]</h3>
+<h3 id="classification-spam">Classification: Spam</h3>
+<h2 id="ts-8">TS 8</h2>
+<h3 id="window-3-4-5-6-7">Window: [3, 4, 5, 6, 7]</h3>
+<pre><code class="python">print('Jaccard(8, 3):', jaccard_similarity(text_vectors.loc[8], text_vectors.loc[3]))
+print('Jaccard(8, 4):', jaccard_similarity(text_vectors.loc[8], text_vectors.loc[4]))
+print('Jaccard(8, 5):', jaccard_similarity(text_vectors.loc[8], text_vectors.loc[5]))
+print('Jaccard(8, 6):', jaccard_similarity(text_vectors.loc[8], text_vectors.loc[6]))
+print('Jaccard(8, 7):', jaccard_similarity(text_vectors.loc[8], text_vectors.loc[7]))
+</code></pre>
+
+<pre><code>Jaccard(8, 3): 0.0
+Jaccard(8, 4): 0.0
+Jaccard(8, 5): 0.0
+Jaccard(8, 6): 0.0
+Jaccard(8, 7): 0.0
+</code></pre>
+<h3 id="since-all-instances-are-tied-use-majority-classification">Since all instances are tied, use majority classification</h3>
+<h3 id="classification-not-spam_1">Classification: Not spam</h3>
+<h2 id="ts-9">TS 9</h2>
+<h3 id="window-4-5-6-7-8">Window: [4, 5, 6, 7, 8]</h3>
+<pre><code class="python">print('Jaccard(9, 4):', jaccard_similarity(text_vectors.loc[9], text_vectors.loc[4]))
+print('Jaccard(9, 5):', jaccard_similarity(text_vectors.loc[9], text_vectors.loc[5]))
+print('Jaccard(9, 6):', jaccard_similarity(text_vectors.loc[9], text_vectors.loc[6]))
+print('Jaccard(9, 7):', jaccard_similarity(text_vectors.loc[9], text_vectors.loc[7]))
+print('Jaccard(9, 8):', jaccard_similarity(text_vectors.loc[9], text_vectors.loc[8]))
+</code></pre>
+
+<pre><code>Jaccard(9, 4): 0.3333333333333333
+Jaccard(9, 5): 0.2
+Jaccard(9, 6): 0.16666666666666666
+Jaccard(9, 7): 0.0
+Jaccard(9, 8): 0.0
+</code></pre>
+<h3 id="nearest-neighbors-4-not-spam-6-not-spam-5-7-8-since-there-are-many-instances-tied-for-3rd-nearest-neighbor-keep-lowering-k-till-the-tie-is-broken">Nearest Neighbors: [4: Not Spam, 6: Not spam, 5, 7, 8] (Since there are many instances tied for 3rd nearest neighbor, keep lowering K till the tie is broken)</h3>
+<h3 id="nearest-neighbor-4-not-spam-6-not-spam">Nearest Neighbor: [4: Not spam, 6: Not spam]</h3>
+<h3 id="classification-not-spam_2">Classification: Not spam</h3>
+<h2 id="ts-10">TS 10</h2>
+<h3 id="window-5-6-7-8-9">Window: [5, 6, 7, 8, 9]</h3>
+<pre><code class="python">print('Jaccard(10, 5):', jaccard_similarity(text_vectors.loc[10], text_vectors.loc[5]))
+print('Jaccard(10, 6):', jaccard_similarity(text_vectors.loc[10], text_vectors.loc[6]))
+print('Jaccard(10, 7):', jaccard_similarity(text_vectors.loc[10], text_vectors.loc[7]))
+print('Jaccard(10, 8):', jaccard_similarity(text_vectors.loc[10], text_vectors.loc[8]))
+print('Jaccard(10, 9):', jaccard_similarity(text_vectors.loc[10], text_vectors.loc[9]))
+</code></pre>
+
+<pre><code>Jaccard(10, 5): 0.4
+Jaccard(10, 6): 0.14285714285714285
+Jaccard(10, 7): 0.0
+Jaccard(10, 8): 0.0
+Jaccard(10, 9): 0.0
+</code></pre>
+<h3 id="nearest-neighbors-5-spam-10-spam-7-8-9-since-there-are-many-instances-tied-for-3rd-nearest-neighbor-keep-lowering-k-till-the-tie-is-broken">Nearest Neighbors: [5: Spam, 10: Spam, 7, 8, 9] (Since there are many instances tied for 3rd nearest neighbor, keep lowering K till the tie is broken)</h3>
+<h3 id="nearest-neighbor-5-spam-10-spam">Nearest Neighbor: [5: Spam, 10: Spam]</h3>
+<h3 id="classification-spam_1">Classification: Spam</h3>
+<h2 id="ts-11">TS 11</h2>
+<h3 id="window-6-7-8-9-10">Window: [6, 7, 8, 9, 10]</h3>
+<pre><code class="python">print('Jaccard(11, 6):', jaccard_similarity(text_vectors.loc[11], text_vectors.loc[6]))
+print('Jaccard(11, 7):', jaccard_similarity(text_vectors.loc[11], text_vectors.loc[7]))
+print('Jaccard(11, 8):', jaccard_similarity(text_vectors.loc[11], text_vectors.loc[8]))
+print('Jaccard(11, 9):', jaccard_similarity(text_vectors.loc[11], text_vectors.loc[9]))
+print('Jaccard(11, 10):', jaccard_similarity(text_vectors.loc[11], text_vectors.loc[10]))
+</code></pre>
+
+<pre><code>Jaccard(11, 6): 0.14285714285714285
+Jaccard(11, 7): 0.16666666666666666
+Jaccard(11, 8): 0.6666666666666666
+Jaccard(11, 9): 0.0
+Jaccard(11, 10): 0.0
+</code></pre>
+<h3 id="nearest-neighbors-8-not-spam-7-spam-6-not-spam">Nearest Neighbors: [8: Not spam, 7: Spam, 6: Not spam]</h3>
+<h3 id="classification-not-spam_3">Classification: Not spam</h3>
+<h2 id="ts-12">TS 12</h2>
+<h3 id="window-7-8-9-10-11">Window: [7, 8, 9, 10, 11]</h3>
+<pre><code class="python">print('Jaccard(12, 7):', jaccard_similarity(text_vectors.loc[12], text_vectors.loc[7]))
+print('Jaccard(12, 8):', jaccard_similarity(text_vectors.loc[12], text_vectors.loc[8]))
+print('Jaccard(12, 9):', jaccard_similarity(text_vectors.loc[12], text_vectors.loc[9]))
+print('Jaccard(12, 10):', jaccard_similarity(text_vectors.loc[12], text_vectors.loc[10]))
+print('Jaccard(12, 11):', jaccard_similarity(text_vectors.loc[12], text_vectors.loc[11]))
+</code></pre>
+
+<pre><code>Jaccard(12, 7): 0.2
+Jaccard(12, 8): 0.0
+Jaccard(12, 9): 0.0
+Jaccard(12, 10): 0.25
+Jaccard(12, 11): 0.0
+</code></pre>
+<h3 id="nearest-neighbors-10-spam-7-spam-8-9-10-since-there-are-many-instances-tied-for-3rd-nearest-neighbor-keep-lowering-k-till-the-tie-is-broken">Nearest Neighbors: [10: Spam, 7: Spam, 8, 9, 10] (Since there are many instances tied for 3rd nearest neighbor, keep lowering K till the tie is broken)</h3>
+<h3 id="nearest-neighbor-10-spam-7-spam">Nearest Neighbor: [10: Spam, 7: Spam]</h3>
+<h3 id="classification-spam_2">Classification: Spam</h3>
+<h1 id="summary-of-predictions">Summary of predictions</h1>
+<pre><code class="python">r = {'ts': [6, 7, 8, 9, 10, 11, 12],
+     'pred': ['Not spam', 'Spam', 'Not spam', 'Not spam', 'Spam', 'Not spam', 'Spam'],
+     'actual': ['Not spam', 'Spam', 'Not spam', 'Not spam', 'Spam', 'Spam', 'Not spam']}
+results = pd.DataFrame(r).set_index('ts')
+results
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pred</th>
+      <th>actual</th>
+    </tr>
+    <tr>
+      <th>ts</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6</th>
+      <td>Not spam</td>
+      <td>Not spam</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Spam</td>
+      <td>Spam</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Not spam</td>
+      <td>Not spam</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Not spam</td>
+      <td>Not spam</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Spam</td>
+      <td>Spam</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Not spam</td>
+      <td>Spam</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Spam</td>
+      <td>Not spam</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3 id="when-the-dataset-is-imbalanced-computing-kappa-against-the-ground-truth-gives-a-more-reliable-performance-estimate-than-accuracy-higher-values-are-better">When the dataset is imbalanced, computing Kappa against the ground truth gives a more reliable performance estimate than accuracy. Higher values are better</h3>
+<pre><code class="python">print('Accuracy:', np.round(accuracy_score(results.actual, results.pred), 2))
+print('Kappa   :', np.round(cohen_kappa_score(results.actual, results.pred), 2))
+</code></pre>
+
+<pre><code>Accuracy: 0.71
+Kappa   : 0.42
+</code></pre>
+<pre><code class="python">
+</code></pre>
+
+<pre><code class="python">
+</code></pre></div>
+        </div>
+
+    <footer class="col-md-12">
+        <hr>
+        
+    </footer>
+
+        <script src="../../js/jquery.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+    </body>
+</html>
